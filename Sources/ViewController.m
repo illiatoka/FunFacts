@@ -3,6 +3,7 @@
 #import "FFColorWheel.h"
 
 @interface ViewController ()
+- (UIStatusBarStyle)preferredStatusBarStyle;
 
 @end
 
@@ -11,20 +12,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     self.factBook = [[FFFactBook alloc] init];
     self.colorWheel = [[FFColorWheel alloc] init];
     
     self.funFactLabel.text = [self.factBook randomFact];
-    self.view.backgroundColor = [self.colorWheel randomColor];
+    
+    UIColor *randomColor = [self.colorWheel randomColor];
+    
+    self.view.backgroundColor = randomColor;
+    self.funFactButton.tintColor = randomColor;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (IBAction)showFunFact {
-    self.funFactLabel.text = [self.factBook randomFact];
-    self.view.backgroundColor = [self.colorWheel randomColor];
+    UIColor *randomColor = [self.colorWheel randomColor];
+    
+    self.view.backgroundColor = randomColor;
+    self.funFactButton.tintColor = randomColor;
 }
 
 @end
