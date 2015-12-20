@@ -1,7 +1,12 @@
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@class FFFactBook;
+@class FFColorWheel;
 
+@interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet    UILabel *funFactLabel;
+
+@property (strong, nonatomic)   FFFactBook      *factBook;
+@property (strong, nonatomic)   FFColorWheel    *colorWheel;
 
 @end
-
