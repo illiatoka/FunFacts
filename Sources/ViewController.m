@@ -38,6 +38,8 @@
     
     self.view.backgroundColor = randomColor;
     self.funFactButton.tintColor = randomColor;
+    
+    self.funFactLabel.text = [self.factBook randomFact];
 }
 
 @end
